@@ -1,0 +1,57 @@
+@import "../styles/colors.scss";
+$radius: 5px;
+.header {
+    background-color: $primary;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .menu {
+        list-style: none;
+        display: flex;
+        width: 30%;
+        flex-direction: row;
+        justify-content: space-around;
+        .menu-button{
+            background-color: $secondary;
+            font-weight: bold;
+            color: white;
+            position: relative;
+            text-transform: uppercase;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: $radius;
+            border: none;
+            overflow: hidden;
+            cursor: pointer;
+            &::before,
+            &:after{
+                content: '';
+                position: absolute;
+                border: 2px solid white;
+                width: 100%;
+                height: 100%;
+                border-radius: $radius;
+                transition-duration: 1s;
+                transition-property: left, top;
+            }
+            &::before{
+                left: -100%;
+                top: 100%;
+            }
+            &:after{
+                left: 100%;
+                top: -100%;
+                
+            }
+            &:hover:before{
+                left: -4px;
+                top: 0;
+            }
+            &:hover:after{
+                left: 0;
+                top: -4px;
+            }
+        }
+    }
+}
